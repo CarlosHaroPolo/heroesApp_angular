@@ -5,4 +5,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-layout-page',
   templateUrl: './layout-page.component.html',
 })
-export class LayoutPageComponent { }
+export class LayoutPageComponent {
+    public sideBarItems =[
+      {label:'Listado',icon:'label',url:'./list'},
+      {label:'Añadir',icon:'add',url:'./new-hero'},
+      {label:'Buscar',icon:'search',url:'./search'},
+    ]
+ }
