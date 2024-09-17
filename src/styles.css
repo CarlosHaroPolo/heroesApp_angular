@@ -14,3 +14,46 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat1toobar{
 background-color: #7fb3d5 !important;
 }
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hero-card-container {
+  padding: 20px;
+}
+
+.hero-card {
+  display: flex;
+  justify-content: center;
+  max-width: 960px; /* Ampliado para permitir más espacio para la imagen */
+  margin: auto; /* Centra la tarjeta en la página */
+}
+
+.card-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+.image-section {
+  flex: 2; /* Mayor espacio asignado a la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  max-width: 100%; /* Ajusta el tamaño máximo según el contenedor */
+  max-height: 100%; /* Asegura que la imagen no exceda la altura del contenedor */
+  aspect-ratio: 1; /* Mantiene la imagen cuadrada */
+}
+
+.details-section {
+  flex: 3; /* Ajustar según sea necesario para balancear con el tamaño de la imagen */
+  padding-left: 20px; /* Espacio entre la imagen y los detalles */
+}
+

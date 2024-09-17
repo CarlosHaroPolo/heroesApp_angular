@@ -2,7 +2,7 @@ import { heroesService } from './../../services/heroes.service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { delay, Observable, switchMap } from 'rxjs';
 import { Hero } from '../../interfaces/hero.interface';
 
 @Component({
@@ -17,6 +17,7 @@ export class HeroPageComponent implements OnInit {
     private heroesService:heroesService,
     private ActivatedRoute:ActivatedRoute  ,// este es omportante
     private router: Router,
+
   ){
     // esto es para leer la url
   }
@@ -29,6 +30,9 @@ export class HeroPageComponent implements OnInit {
       this.hero = hero;
       return;
   })
+  }
+  goBack(){
+  this.router.navigateByUrl('heroes/list')
   }
 
 }
