@@ -9,54 +9,71 @@
   <div class="col-12 sm:col-6">
     <mat-card>
       <mat-card-content>
-        <div class="grid">
+        <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()" > <!--enlasar con el heroForm (ahora tienes que conectar campo por campo)-->
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Super Heroe</mat-label>
-            <input matInput type="text" required>
+            <input matInput type="text" required
+            formControlName="superhero"
+            >
           </mat-form-field>
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Alter Ego</mat-label>
-            <input matInput type="text" required>
+            <input matInput type="text" required
+            formControlName="alter_ego">
           </mat-form-field>
           <mat-form-field class="col-12">
             <mat-label>Primera Aparicion</mat-label>
-            <input matInput type="text" required>
+            <input matInput type="text" required
+            formControlName="first_appearance">
           </mat-form-field>
           <mat-form-field class="col-12">
-            <mat-label>Personaje</mat-label>
-            <input matInput type="text" required>
+            <mat-label>Personajes</mat-label>
+            <input matInput type="text" required
+            formControlName="characters">
           </mat-form-field>
 
 
           <mat-form-field class="col-12">
-            <mat-label>Primera Aparicion</mat-label>
-            <mat-select required="">
+            <mat-label>Creador</mat-label>
+            <mat-select
+            formControlName="publisher"
+            required="">
               <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">{{publisher.desc}}</mat-option>
             </mat-select>
           </mat-form-field>
-        </div>
+          <mat-form-field class="col-12">
+            <mat-label>Alternative Image</mat-label>
+            <input matInput type="text"
+            formControlName="alt_img">
+          </mat-form-field>
+        </form>
+
+
         <div class="flex justif-content-between">
           <button mat-flat-button color="warn">
             Borrar
           </button>
           <span class="spacer"></span>
-          <button mat-flat-button color="primary">
+          <button mat-flat-button color="primary"
+          (click)="onSubmit()"> <!--es porque lo tengo afuera -->
             <mat-icon>save</mat-icon>
             Guardar
           </button>
 
         </div>
-
-
-
-
       </mat-card-content>
     </mat-card>
   </div>
 
   <div class="col-12 sm:col-6">
     <mat-card>
-      <img src="" alt="imagen del herore" mat-card-image>
+      <img [src]="currentHero | heroImage" alt="imagen del herore" mat-card-image>
     </mat-card>
   </div>
 </div>
+
+<pre>
+  {{currentHero |json}}
+
+</pre>
+
