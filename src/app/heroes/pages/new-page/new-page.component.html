@@ -1,5 +1,5 @@
 <h1>
-  Editar / Agregar
+ {{currentHero.id ? 'editar':'agregar'}}
   Heroe
   <small>Superman</small>
 </h1>
@@ -50,7 +50,8 @@
 
 
         <div class="flex justif-content-between">
-          <button mat-flat-button color="warn">
+          <button mat-flat-button color="warn"
+          (click)="onDeleteHero()">
             Borrar
           </button>
           <span class="spacer"></span>

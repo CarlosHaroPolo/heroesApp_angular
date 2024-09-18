@@ -4,6 +4,8 @@ import { catchError, map, Observable, of } from 'rxjs';
 import { Hero } from '../interfaces/hero.interface';
 import { environments } from '../../../environments/environments';
 
+import { MatDialog } from '@angular/material/dialog';
+
 @Injectable({providedIn: 'root'})
 export class heroesService {
   private baseUrl:string = environments.baseUrl;
@@ -32,13 +34,14 @@ export class heroesService {
   if(!hero.id) throw Error("hero id is required")
   return this.http.patch<Hero>(`${this.baseUrl}/heroes/${hero.id}`,hero); //le das la url ademas le vas a entregar el body para agregar el hero
 }
- deleteHero(id:string):Observable<boolean>{
+deleteHeroById(id:string):Observable<boolean>{
   // el delid envia un estatu 404
     return this.http.delete<Hero>(`${this.baseUrl}/heroes/${id}`)
     .pipe(
+      map(resp=>true ),  // me sirve para trasformar la respuesta
       catchError(err=> of(false)),
-      map(resp=>true )  // me sirve para trasformar la respuesta
     )
 
  }
+
 }

@@ -11,6 +11,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { CardComponent } from './components/card/card.component';
 import { PipeImagenPipe } from './pipes/pipeImagen.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDialogComponent } from './components/confirmDialog/confirmDialog.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   CardComponent,
   //Pipe
   PipeImagenPipe,
+  ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
