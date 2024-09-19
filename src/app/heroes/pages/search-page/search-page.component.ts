@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
   templateUrl: './search-page.component.html',
 })
 export class SearchPageComponent {
-  public searchInput  = new FormControl('');
+  //searchInput.value es el encargado de mostrarme lo que esta en la caja
+  public searchInput  = new FormControl(''); // estas que inicializas con ''
   public heroes:Hero[]=[];
 
   public selectHero ?:Hero; // este es la informacion del hero seleccionado
@@ -22,14 +23,13 @@ constructor(
 ){
 
 }
-
+//------------------------------
   searchHero(){
     const value:string= this.searchInput.value ||'';
     this.service.getSuggestions(value)
     .subscribe(heroes=> this.heroes= heroes
 
     );
-
   }
   // este metodo es propio de angular materiasl
   onSelectedOption(event:MatAutocompleteSelectedEvent):void{
@@ -41,8 +41,9 @@ constructor(
   const hero:Hero = event.option.value;
   this.searchInput.setValue(hero.superhero); // este es para poner el nombre que estas buscando
   this.selectHero= hero;
-
   }
+//------------------------------
+
   goBack(){
   this.router.navigateByUrl('heroes/list');
   }

@@ -15,7 +15,8 @@ export class HeroPageComponent implements OnInit {
 
   constructor(
     private heroesService:heroesService,
-    private ActivatedRoute:ActivatedRoute  ,// este es omportante
+// este es el servicio para leer los parametros
+    private ActivatedRoute:ActivatedRoute  ,
     private router: Router,
 
   ){
@@ -25,7 +26,9 @@ export class HeroPageComponent implements OnInit {
   // antes que nada primero hay que tener que leer el id que nos an enviado
   this.ActivatedRoute.params.pipe(
   switchMap(({id})=>this.heroesService.getHeroById(id) )  // sirve para agarrar los params peros olo quiero agarar el id
-  ).subscribe(hero=>{ // tecnicamente te devuelve los params
+  // si  no encuentra al hero va salir undefined
+).subscribe(hero=>{
+     //si hero es unddefined te bota
      if(!hero) return   this.router.navigate(['/heroes/list']);   // si no tiene tienes que redireccinarlo con agular router
       this.hero = hero;
       return;

@@ -6,8 +6,12 @@
     matInput
     [formControl]="searchInput"
     (input)="searchHero()"
-    [matAutocomplete]="auto"> <!--le estas diciendo que esa referencia locas esta apuntando al matAutoccomplete-->
+    [matAutocomplete]="auto"> <!--le estas diciendo que esa referencia locas esta
+    apuntando al matAutoccomplete-->
+<!--el de arriiba sive para conectar con el de abajo llama a una variable local-->
 
+    <!--Este es el la aprte que se encarga de completar los-->
+    <!--optionSelected:es un evento personalizado de angular Material hay n input -->
     <mat-autocomplete autoActiveFirstOption
     #auto="matAutocomplete"
     (optionSelected)="onSelectedOption($event)"
